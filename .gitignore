@@ -1,0 +1,52 @@
+# ---- Binarios y objetos de C++ ----
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.exp
+*.lib
+*.pdb
+*.ilk
+*.idb
+*.dll
+*.so
+*.dylib
+*.a
+
+# ---- Carpetas de build ----
+build/
+bin/
+obj/
+out/
+Debug/
+Release/
+x64/
+x86/
+
+# ---- IDEs y editores ----
+.vscode/
+.vs/
+.idea/
+*.user
+*.suo
+*.code-workspace
+*.swp
+*.swo
+
+# ---- Sistemas operativos ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+$RECYCLE.BIN/
+
+# ---- CMake ----
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+
+# ---- Logs y archivos temporales ----
+*.log
+*.tmp
+*.bak

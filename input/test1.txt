@@ -1,0 +1,35 @@
+# Caso de prueba 1 - Operaciones basicas del enunciado
+# ----------------------------------------------------
+# Configuracion: 65536 bytes totales, paginas de 1024 -> 64 paginas
+MEMORIA_TOTAL 65536
+TAMANO_PAGINA 1024
+TAMANO_CACHE_GLOBAL 8
+
+# Creamos dos procesos
+NEW_PROCESS P1 4096
+NEW_PROCESS P2 8192
+
+# Acceso a direccion 100 -> pagina virtual 0
+ACCESS P1 100
+# Acceso a direccion 2500 -> pagina virtual 2 (deberia ser MISS local, MISS global, HIT splay)
+ACCESS P1 2500
+# Volvemos a acceder a la misma -> ahora deberia ser HIT local
+ACCESS P1 2500
+# P2 accede
+ACCESS P2 7000
+
+# Pedimos mas memoria a P1
+ALLOCATE P1 2048
+
+# Liberamos parte de la memoria de P2
+FREE P2 2048 2048
+
+# Estado y metricas
+STATUS
+METRICS
+
+# Cerramos procesos
+END_PROCESS P1
+END_PROCESS P2
+
+METRICS

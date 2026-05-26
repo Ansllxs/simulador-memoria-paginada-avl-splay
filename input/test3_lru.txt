@@ -1,0 +1,24 @@
+# Caso de prueba 3 - Demostrar la politica LRU en accion
+# Configuramos un cache global pequeno para forzar reemplazos
+MEMORIA_TOTAL 16384
+TAMANO_PAGINA 1024
+TAMANO_CACHE_GLOBAL 3
+
+# Un proceso con 10 paginas -> cache local de 20% = 2 paginas
+NEW_PROCESS P1 10240
+
+# Accedemos a varias paginas distintas para llenar y rebasar los caches
+ACCESS P1 0
+ACCESS P1 1024
+ACCESS P1 2048
+ACCESS P1 3072
+ACCESS P1 4096
+ACCESS P1 5120
+
+# Volvemos a acceder a una vieja -> deberia ser MISS en cache (ya fue desalojada)
+ACCESS P1 0
+
+STATUS
+METRICS
+
+END_PROCESS P1

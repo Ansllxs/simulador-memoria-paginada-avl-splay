@@ -1,0 +1,34 @@
+# Caso de prueba 2 - Manejo de errores
+MEMORIA_TOTAL 8192
+TAMANO_PAGINA 1024
+TAMANO_CACHE_GLOBAL 4
+
+NEW_PROCESS P1 4096
+
+# Proceso duplicado
+NEW_PROCESS P1 1024
+
+# Proceso inexistente
+ACCESS P9 100
+
+# Direccion invalida
+ACCESS P1 -50
+
+# Memoria insuficiente (pedimos 9 paginas y solo quedan 4)
+NEW_PROCESS P2 9216
+
+# Acceso a pagina no asignada
+ACCESS P1 999999
+
+# Free de pagina no asignada
+FREE P1 50000 1024
+
+# Operacion desconocida
+HACER_MAGIA P1
+
+# Tamano de pagina invalido (intentamos reconfigurar con procesos vivos)
+MEMORIA_TOTAL 1024
+TAMANO_PAGINA 333
+
+END_PROCESS P1
+METRICS
